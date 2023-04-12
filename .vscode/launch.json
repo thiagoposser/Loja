@@ -1,0 +1,47 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Arquivo Atual",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/back/manage.py",
+            "args": [
+                "runserver"
+            ],
+            "django": true,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}",
+                "DJANGO_SETTINGS_MODULE": "backend.settings"
+            },
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Angular: Servidor Local",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}/front",
+            "sourceMapPathOverrides": {
+                "webpack:///./*": "${webRoot}/*"
+            }
+        }
+    ],
+    "tasks": [
+        {
+            "label": "activate",
+            "type": "shell",
+            "command": "venv\\Scripts\\activate"
+        },
+        {
+            "label": "ng serve",
+            "type": "npm",
+            "script": "start",
+            "path": "${workspaceFolder}/front",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
